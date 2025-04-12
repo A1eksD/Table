@@ -1,0 +1,42 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+  
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+  
+::ng-deep .mat-mdc-select-trigger {
+  text-align: center;
+}
+
+.mat-icon-button{
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.5s ease-in-out; 
+}
+
+a:hover {
+  color: blue;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-column-select {
+  overflow: visible;
+}

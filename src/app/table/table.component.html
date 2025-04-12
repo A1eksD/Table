@@ -1,0 +1,73 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-header">
+        <mat-form-field>
+            <input #filterInput matInput (keyup)="applyFilter(filterInput.value)" placeholder="Filter">        
+        </mat-form-field>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)">
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+  
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <a
+            [href]="'https://duckduckgo.com/?q=' + element.name + '&ia=images&iax=images&iai=https%3A%2F%2Fwww.obermayerfamilymatters.com%2Fwp-content%2Fuploads%2Fsites%2F5%2F2023%2F12%2Fname-change.jpg'"
+            target="_blank"
+            rel="noopener noreferrer">
+            {{ element.name }}
+          </a>
+        </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="prodID">
+        <mat-header-cell *matHeaderCellDef> ProdID </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span>{{ element.prodID }}</span>
+          <button mat-icon-button color="primary" (click)="copyToClipboard(element.prodID)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+  
