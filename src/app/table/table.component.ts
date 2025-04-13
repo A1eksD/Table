@@ -27,7 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'prodID'];
+  displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol', 'prodID'];
   dataSource = new MatTableDataSource<Tableelement>(ELEMENT_DATA);
   selection = new SelectionModel<Tableelement>(true, []);
 
