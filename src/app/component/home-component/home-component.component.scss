@@ -1,0 +1,14 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    height: 100dvh;
+    width: 100vw;
+}
+
+:host ::ng-deep .custom-btn.p-button {
+    --p-button-bg:   var(--zinc-900);
+    --p-button-text-color: whitesmoke;
+  }
