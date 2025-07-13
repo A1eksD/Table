@@ -1,0 +1,41 @@
+<p-table
+  [columns]="cols"
+  [value]="virtualCars"
+  [scrollable]="true"
+  scrollHeight="400px"
+  [rows]="100"
+  [virtualScroll]="true"
+  [virtualScrollItemSize]="46"
+  [lazy]="true"
+  (onLazyLoad)="loadCarsLazy($event)"
+  class="example-container">
+
+  <ng-template #header let-columns>
+    <tr>
+      <th *ngFor="let col of columns" style="width: 20%">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+
+  @for(item of items; track item.id) {
+    git <ng-template
+    #body
+    let-rowData
+    let-columns="columns"
+    *ngFor="let hero of heroes">
+    <tr style="height: 46px">
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+    </ng-template>
+  }
+
+  <ng-template #paginatorleft>
+        <p-button type="button" icon="pi pi-plus" text />
+    </ng-template>
+    <ng-template #paginatorright>
+        <p-button type="button" icon="pi pi-cloud" text />
+    </ng-template>
+</p-table>
