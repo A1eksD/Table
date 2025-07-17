@@ -1,0 +1,29 @@
+section{
+    height: 100dvh;
+    width: 100vw;
+    display: flex;
+
+    .main-content{
+        width: calc(100% - 80px);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        app-header{
+            height: 80px;
+            width: 100%;
+        }
+
+        app-angular-table{
+            height: calc(100% - 120px);
+            width: 100%;
+        }
+
+        app-footer{
+            height: 40px;
+            width: 100%;
+        }
+    }
+}

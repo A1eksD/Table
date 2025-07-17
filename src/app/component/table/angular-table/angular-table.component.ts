@@ -81,7 +81,10 @@ export class AngularTableComponent {
 
   exportToExcel(): void {
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.dataSource.data); // umwandeln der JSON-Daten in ein arbeitsblatt
-    const workbook: XLSX.WorkBook = { Sheets: { 'Daten': worksheet }, SheetNames: ['Daten'] }; // erstellen eines arbeitsbuchs (workbook) mit dem arbeitsblatt
+    const workbook: XLSX.WorkBook = { Sheets: 
+                                      { 'Daten': worksheet }, 
+                                      SheetNames: ['Daten'] 
+                                    }; // erstellen eines arbeitsbuchs (workbook) mit dem arbeitsblatt
     const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' }); // schreiben des arbeitsbuchs in einen buffer (binary data)
     this.saveAsExcelFile(excelBuffer, 'export'); // erzeugen eines blobs und download auslösen
   }
